@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>A.I CONTENT GENERATOR WITH Llama</title>
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"  crossorigin="anonymous">
+<script src="{% static 'js/jquery.js' %}" crossorigin="anonymous"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}" crossorigin="anonymous"></script> 
+    <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/340cef720c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'css/desktop.css' %}">
+    <link rel="stylesheet" media="screen and (max-width: 1080px)" href="{% static 'css/mobile.css' %}">
+    <link rel="icon" type="image/png" href="{% static 'image/icon.png' %}">
+</head>
+
+<body>
+   <div id="navstrip">
+    <div class="navbox">
+        <div class="option">
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-1 col-lg-3 col-xl-3 col-sm-1 col-1"></div>
+    <div class="col-md-10 col-lg-6 col-xl-6 col-sm-10 col-10">
+        <h1>AI Content Generator with LLaMa</h1>
+        <br><br>
+        <form id="post-form" method="POST" action="">
+             {% csrf_token %}    
+           <input type="text" name="entered_text" class="form-control"  placeholder="Enter your text here" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        <div class="col text-center butn">
+        <button type="submit" class="btn btn-dark">Generate</button></div> <br/>   
+    </form>
+    {% if request.method == "POST" %}
+         <div class="alert alert-primary" role="alert">
+            {{cleaned_text}}
+        </div>
+    {% endif %}
+    </div>
+    <div class="col-md-1 col-lg-3 col-xl-3 col-sm-1 col-1"></div>
+</div>
+
+</body>
+<script src="{% static 'js/index.js' %}" crossorigin="anonymous"></script>
+</html>
